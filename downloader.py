@@ -24,10 +24,10 @@ def download_media(url, base_folder='D:/MP3Download/downloads', download_format=
         with yt_dlp.YoutubeDL(ydl_extract_opts) as ydl:
             info = ydl.extract_info(url, download=False)
     except Exception as e:
-        error_msg = f"⚠️ Failed to fetch media info: {e}"
+        error_msg = f" Failed to fetch media info: {e}"
         print("\n" + error_msg)
         if progress_callback:
-            progress_callback(f"❌ {error_msg}")
+            progress_callback(f"ERROR: {error_msg}")
         return
 
     entries = info['entries'] if 'entries' in info else [info]
@@ -47,12 +47,12 @@ def download_media(url, base_folder='D:/MP3Download/downloads', download_format=
             output_path = os.path.join(base_folder, playlist_title, f"{title}.{file_ext}")
 
             if os.path.exists(output_path):
-                print(f"✅ Already downloaded: {title}")
+                print(f" Already downloaded: {title}")
                 continue
 
-            print(f"⬇️ Downloading: {title}")
+            print(f" Downloading: {title}")
             if progress_callback:
-                progress_callback(f"⬇️ Downloading: {title}")
+                progress_callback(f" Downloading: {title}")
 
             if download_format == 'mp3':
                 ydl_opts = {
@@ -75,7 +75,7 @@ def download_media(url, base_folder='D:/MP3Download/downloads', download_format=
                     'noplaylist': False,
                 }
             else:
-                msg = f"❌ Unsupported format: {download_format}"
+                msg = f" Unsupported format: {download_format}"
                 print(msg)
                 if progress_callback:
                     progress_callback(msg)
@@ -85,12 +85,12 @@ def download_media(url, base_folder='D:/MP3Download/downloads', download_format=
                 ydl.download([entry['webpage_url']])
 
         except Exception as e:
-            error_msg = f"❌ Failed: {entry.get('title', 'Unknown Title')} — {e}"
+            error_msg = f" Failed: {entry.get('title', 'Unknown Title')} — {e}"
             print(error_msg)
             skipped_items.append(entry.get('title', 'Unknown Title'))
 
     if skipped_items:
-        print("\n⚠️ Skipped items due to errors:")
+        print("\n Skipped items due to errors:")
         for s in skipped_items:
             print(f" - {s}")
 
