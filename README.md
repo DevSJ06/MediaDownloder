@@ -1,71 +1,53 @@
-# 🎵 Universal Media Downloader (Desktop Edition)
+# Media Downloader
 
-A Python-based application for downloading MP3 (audio) or MP4 (video) content from YouTube and other supported sites using [yt-dlp](https://github.com/yt-dlp/yt-dlp). This tool features a simple graphical interface (Tkinter) for easy downloading of single videos or playlists.
+A desktop app for downloading audio (MP3) or video (MP4) from YouTube and other sites supported by [yt-dlp](https://github.com/yt-dlp/yt-dlp). It has a simple Tkinter window, and it works with single videos and playlists.
 
----
 
-## 📦 Features
+## Features
 
-- ✅ Supports MP3 and MP4 formats
-- ✅ Downloads from a variety of sites (YouTube, Pornhub, Facebook, TikTok, etc.)
-- ✅ Playlist and single video support
-- ✅ GUI built with Tkinter
-- ✅ Automatic folder creation and filename sanitization
-- ✅ Skips already downloaded files
+- Download as MP3 or MP4
+- Single videos and full playlists
+- Works with any site yt-dlp supports
+- Creates the download folder automatically and cleans up file names
+- Skips files you have already downloaded
 
----
+## Requirements
 
-## 🚀 Getting Started
+- Python 3.7 or newer
+- [ffmpeg](https://ffmpeg.org/download.html), available in your system PATH
+- yt-dlp (installed in the steps below)
 
-### Requirements
+Tkinter comes with most Python installs. On Ubuntu or Debian you may need `sudo apt install python3-tk`.
 
-- Python 3.7 or higher
-- `ffmpeg` (must be in your system PATH)
-- Internet connection
+## Installation
 
-### Installation
-
-1. **Clone the Repository**
-   ```bash
-   git clone https://github.com/your-username/media-downloader.git
-   cd media-downloader
-   ```
-
-2. **Install Dependencies**
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-3. **Run the App**
-   ```bash
-   python app.py
-   ```
-
-> 💡 You can also double-click the `.py` file if your system is configured with Python as the default opener.
-
----
-
-## 📁 File Structure
-
-```
-media-downloader/
-├── downloader.py       # Core download logic (uses yt-dlp)
-├── app.py              # GUI entry point using Tkinter
-├── requirements.txt    # Required Python libraries
-├── README.md           # Project documentation
-└── LICENSE             # MIT License
+```bash
+git clone https://github.com/DevSJ06/MediaDownloder.git
+cd MediaDownloder
+pip install -r requirements.txt
 ```
 
----
+## Usage
 
-## ❗ Legal Disclaimer
+```bash
+python App.py
+```
 
-This tool is intended for **educational and personal use only**. Make sure you comply with the terms of service of any website you use it with. 
+Paste a video or playlist link, choose MP3 or MP4, pick a download folder and start the download.
 
-The developer is **not responsible** for how this software is used.
+## Project structure
 
----
+```
+App.py              # Tkinter GUI, run this file
+downloader.py       # Download logic, built on yt-dlp
+requirements.txt    # Python dependencies
+LICENSE             # MIT license
+```
 
-## 📜 License
+## Disclaimer
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+This is a personal learning project. Only download content you have the right to download, and follow the terms of service of each site you use it with. I am not responsible for how it is used.
+
+## License
+
+MIT. See [LICENSE](LICENSE).
